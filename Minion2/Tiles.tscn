@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/bg_layer1.png" type="Texture" id=1]
+[ext_resource path="res://assets/ground_grass_small.png" type="Texture" id=2]
+
+[node name="Tiles" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 9.97395, 2.5406 )
+scale = Vector2( 0.011633, 0.0124162 )
+texture = ExtResource( 1 )
+region_rect = Rect2( 50, 0, 32, 32 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 76.7501, 3.15392 )
+scale = Vector2( 0.114992, 0.188992 )
+texture = ExtResource( 2 )
+region_rect = Rect2( 84, 47.4737, 33.0526, 29.5263 )

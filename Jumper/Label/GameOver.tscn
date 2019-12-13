@@ -1,0 +1,19 @@
+[gd_scene format=2]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 169.0
+margin_top = 4.0
+margin_right = -515.0
+margin_bottom = -382.0
+
+[node name="Label" type="Label" parent="."]
+margin_left = -10.0
+margin_top = 31.0
+margin_right = 103.0
+margin_bottom = 73.0
+rect_scale = Vector2( 4, 4 )
+text = "Gamer Over"
+align = 1
+valign = 1

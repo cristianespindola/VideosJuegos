@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://theme/font_label.tres" type="DynamicFont" id=1]
+
+[node name="Winner" type="Control"]
+
+[node name="Label" type="Label" parent="."]
+margin_left = 309.197
+margin_top = 65.3304
+margin_right = 504.197
+margin_bottom = 152.33
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.12549, 0.956863, 0.0784314, 1 )
+custom_colors/font_color_shadow = Color( 0.823529, 0.811765, 0.517647, 1 )
+text = "YOU WIN! :)"
+align = 1
+valign = 1

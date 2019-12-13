@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Jugador/Enemigo.gd" type="Script" id=1]
+[ext_resource path="res://PNG/Enemies/wingMan1.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 88.4809, 72.0125 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 86.3196, 62.6825 )
+
+[node name="Enemigo" type="KinematicBody2D"]
+position = Vector2( 277.249, 203.657 )
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 1.629, -8.14516 )
+shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="Deteccion" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deteccion"]
+position = Vector2( 9.15527e-005, 1.62898 )
+shape = SubResource( 2 )
+one_way_collision = true
+[connection signal="area_entered" from="Deteccion" to="." method="_on_Deteccion_area_entered"]

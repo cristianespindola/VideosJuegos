@@ -1,0 +1,74 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://World.gd" type="Script" id=1]
+[ext_resource path="res://Camera2D.gd" type="Script" id=2]
+[ext_resource path="res://Jugador/Jumper2D.gd" type="Script" id=3]
+[ext_resource path="res://PNG/Enemies/flyMan_still_stand.png" type="Texture" id=4]
+[ext_resource path="res://Plataformas/PlataformaComun2D.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Plataformas/PlataformaMovil.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Plataformas/PlataformaFantasma.tscn" type="PackedScene" id=7]
+[ext_resource path="res://PNG/Catalunya demo.ttf" type="DynamicFontData" id=8]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 49.8599, 32.5129 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 56.1535, 10 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 64
+font_data = ExtResource( 8 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 517.265, -10.6335 )
+current = true
+zoom = Vector2( 1.5, 1.5 )
+script = ExtResource( 2 )
+
+[node name="Jumper2D" type="KinematicBody2D" parent="."]
+position = Vector2( 174.98, 409.902 )
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="Jumper2D"]
+position = Vector2( -2.50528, 3.34036 )
+scale = Vector2( 1.09743, 1.17714 )
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jumper2D"]
+position = Vector2( -3.49905, 47.8204 )
+shape = SubResource( 1 )
+
+[node name="jumper" type="Area2D" parent="Jumper2D"]
+editor/display_folded = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jumper2D/jumper"]
+position = Vector2( -1.43198, 71.5987 )
+shape = SubResource( 2 )
+
+[node name="plataformaComun" parent="." instance=ExtResource( 5 )]
+position = Vector2( 215.867, 532.595 )
+
+[node name="plataformaComun2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 584.893, 306.94 )
+
+[node name="plataformaComun3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 891.297, 78.4751 )
+
+[node name="plataformaComun4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 226.037, -457.435 )
+
+[node name="StaticBody2D" parent="." instance=ExtResource( 6 )]
+position = Vector2( 425.867, -109.327 )
+
+[node name="PlataformaFantasma" parent="." instance=ExtResource( 7 )]
+position = Vector2( 822.821, -262.353 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+margin_right = 118.0
+margin_bottom = 75.0
+custom_fonts/font = SubResource( 3 )

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Item1.gd" type="Script" id=1]
+[ext_resource path="res://PNG/Items/bronze_1.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 24.1376, 23.5704 )
+
+[node name="Item1" type="Area2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="bronze_1" type="Sprite" parent="."]
+position = Vector2( 64.7095, 33.3504 )
+scale = Vector2( 0.532124, 0.492641 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 65.6856, 32.4321 )
+shape = SubResource( 1 )
+[connection signal="body_entered" from="." to="." method="_on_Item1_body_entered"]

@@ -1,0 +1,91 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://levels/level_2/Level_2.gd" type="Script" id=1]
+[ext_resource path="res://floor.tres" type="TileSet" id=2]
+[ext_resource path="res://player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Items/Item1.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Items/Item2.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Item2.gd" type="Script" id=6]
+[ext_resource path="res://Items/Item4.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Item4.gd" type="Script" id=8]
+[ext_resource path="res://game_ui.gd" type="Script" id=9]
+[ext_resource path="res://theme/demo_theme.tres" type="Theme" id=10]
+[ext_resource path="res://Bloque1.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Bloque1.gd" type="Script" id=12]
+[ext_resource path="res://Bloque2.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Bloque2.gd" type="Script" id=14]
+[ext_resource path="res://theme/font_label.tres" type="DynamicFont" id=15]
+[ext_resource path="res://levels/level_1/Label.gd" type="Script" id=16]
+
+[node name="Level_2" type="Node"]
+script = ExtResource( 1 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 116, 74 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 0, 1, 1, 0, 2, 0, 0, 3, 1, 0, 4, 0, 0, 5, 1, 0, 6, 0, 0, 7, 1, 0, 65536, 1, 0, 65543, 0, 0, 131072, 0, 0, 131079, 1, 0, 196608, 1, 0, 196615, 0, 0, 262144, 0, 0, 262151, 1, 0, 327680, 1, 0, 327687, 0, 0, 393216, 0, 0, 393223, 1, 0, 458752, 1, 0, 458753, 0, 0, 458754, 1, 0, 458755, 0, 0, 458756, 1, 0, 458757, 0, 0, 458758, 1, 0, 458759, 0, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 176.704, 262.187 )
+
+[node name="Item1" parent="." instance=ExtResource( 4 )]
+position = Vector2( 107.059, 357.011 )
+
+[node name="Item2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 684.567, 439.479 )
+script = ExtResource( 6 )
+
+[node name="Item4" parent="." instance=ExtResource( 7 )]
+position = Vector2( 259.52, 313.005 )
+script = ExtResource( 8 )
+
+[node name="UI" type="CanvasLayer" parent="."]
+editor/display_folded = true
+
+[node name="Control" type="Control" parent="UI"]
+margin_left = 168.145
+margin_top = 112.78
+margin_right = 208.145
+margin_bottom = 152.78
+script = ExtResource( 9 )
+
+[node name="score" type="Label" parent="UI/Control"]
+margin_left = -10.2527
+margin_top = -10.2527
+margin_right = 66.7473
+margin_bottom = 34.7473
+theme = ExtResource( 10 )
+
+[node name="Bloque1" parent="." instance=ExtResource( 11 )]
+script = ExtResource( 12 )
+
+[node name="Bloque2" parent="." instance=ExtResource( 13 )]
+position = Vector2( 546.755, 38.7768 )
+script = ExtResource( 14 )
+
+[node name="Reloj" type="Node2D" parent="."]
+
+[node name="cronometro" type="Timer" parent="Reloj"]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="Label" type="Label" parent="Reloj"]
+margin_left = 708.888
+margin_top = 93.1551
+margin_right = 789.888
+margin_bottom = 137.155
+custom_fonts/font = ExtResource( 15 )
+custom_colors/font_color = Color( 0.447059, 0.976471, 0.321569, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.937255, 0.976471, 0.607843, 1 )
+text = "0"
+align = 1
+script = ExtResource( 16 )
+[connection signal="body_entered" from="Item2" to="Item2" method="_on_Item2_body_entered"]
+[connection signal="body_entered" from="Item4" to="Item4" method="_on_Item4_body_entered"]
+[connection signal="body_entered" from="Bloque1" to="Bloque1" method="_on_Bloque1_body_entered"]
+[connection signal="area_entered" from="Bloque2" to="Bloque2" method="_on_Bloque2_area_entered"]
+[connection signal="timeout" from="Reloj/cronometro" to="Item2" method="_on_cronometro_timeout"]
+[connection signal="timeout" from="Reloj/cronometro" to="Player" method="_on_cronometro_timeout"]

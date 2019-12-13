@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://theme/font_label.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Label.gd" type="Script" id=2]
+
+[node name="Bomba" type="Node2D"]
+
+[node name="cronometro" type="Timer" parent="."]
+wait_time = 180.0
+one_shot = true
+autostart = true
+
+[node name="Label" type="Label" parent="."]
+margin_left = 19.1824
+margin_top = 14.7687
+margin_right = 121.182
+margin_bottom = 49.7687
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.0745098, 0.984314, 0.345098, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.741176, 0.870588, 0.321569, 1 )
+text = "0"
+align = 1
+script = ExtResource( 2 )
