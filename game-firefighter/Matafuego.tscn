@@ -39,12 +39,11 @@ process_material = SubResource( 5 )
 script = null
 
 [node name="Area2D" type="Area2D" parent="."]
-editor/display_folded = true
 collision_layer = 32
 collision_mask = 32
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-polygon = PoolVector2Array( 78.1298, -17.059, 78.1298, 14.7182, -2.56773, -0.752254 )
+polygon = PoolVector2Array( 105.447, -14.5344, 105.447, 14.0974, -2.56773, -0.752254 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0

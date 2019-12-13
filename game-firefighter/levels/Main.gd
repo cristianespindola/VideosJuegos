@@ -18,9 +18,11 @@ func reload_reset():
 	var levelNew 
 	if(levelRest == null):
 		levelNew = level1.instance()
+		levelNew.numLevel = sigLevel
 		
 	else:
 		levelNew = levelRest.instance()
+		levelNew.numLevel = sigLevel
 	level.queue_free()
 	level = levelNew
 	level.world = self
