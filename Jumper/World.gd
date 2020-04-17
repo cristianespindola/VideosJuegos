@@ -17,7 +17,7 @@ var score = 0
 var proxPosX = 190
 var proxPosY = -800
 var limDer = 833
-var limIzq = 300
+var limIzq = 299
 
 var zonaACrearPlat = 300
 
