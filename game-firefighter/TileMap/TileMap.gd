@@ -20,7 +20,7 @@ func _ready():
 	crearFuegos()
 	
 func crearFuegos():
-	for c in 550:
+	for c in cantCel:
 		crearFuego()
 
 func crearFuego():
@@ -37,7 +37,8 @@ func cantCelda():
 func contarCelda(cellT):
 	match cellT:
 		CellType.PISO : cantCel +=1
-		  
+		CellType.COMBUSTIBLE : cantCel +=1
+		
 func cantFuegos():
 	for cell in get_used_cells():
 		var cellType = get_cellv(cell)
